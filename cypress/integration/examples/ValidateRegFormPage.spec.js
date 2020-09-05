@@ -25,8 +25,8 @@ describe('RegAccount', function () {
        cy.get('#Details_CompanyWebsiteUrl').type("https://www.noe.com")
        cy.get('#register-button').should('be.visible').click()
        cy.url().should('include','register')
-       cy.get('body > div.master-wrapper-page > section > div > div > div > div > div > div.page-body.page-body-wrapper > form > div.message-error.validation-summary-errors > ul > li:nth-child(2)').contains('Please enter all the required information below')
-       cy.get('body > div.master-wrapper-page > section > div > div > div > div > div > div.page-body.page-body-wrapper > form > div.message-error.validation-summary-errors > ul > li:nth-child(1)').contains('The specified email already exists')
+       cy.get('div.message-error.validation-summary-errors > ul > li:nth-child(2)').contains('Please enter all the required information below')
+       cy.get('div.message-error.validation-summary-errors > ul > li:nth-child(1)').contains('The specified email already exists')
        
    })
 })

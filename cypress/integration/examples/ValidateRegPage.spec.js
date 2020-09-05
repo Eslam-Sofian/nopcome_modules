@@ -46,6 +46,28 @@ describe('VerPageEli', function () {
        cy.get('h1').contains('Register')
   })
   
+  it('VPageFooter',function () 
+  {
+       cy.get('div > div > div:nth-child(1) > div > strong').contains('Product').should('be.visible')
+       cy.get('div.footer-upper-wrapper > div > div > div:nth-child(1) > ul > li:nth-child(1) > a').contains('Get started').should('be.visible')
+       cy.get('div.footer-upper-wrapper > div > div > div:nth-child(1) > ul > li:nth-child(2) > a').contains('Store demo').should('be.visible')
+       cy.get('div.footer-upper-wrapper > div > div > div:nth-child(1) > ul > li:nth-child(3) > a').contains('Showcase').should('be.visible')
+       cy.get('div.footer-upper-wrapper > div > div > div:nth-child(1) > ul > li:nth-child(4) > a').contains('Case studies').should('be.visible')
+       cy.get('div.footer-upper-wrapper > div > div > div:nth-child(1) > ul > li:nth-child(5) > a').contains('Features').should('be.visible')
+       cy.get('div.footer-upper-wrapper > div > div > div:nth-child(1) > ul > li:nth-child(6) > a').contains('Why for developers').should('be.visible')
+       cy.get('div.footer-upper-wrapper > div > div > div:nth-child(1) > ul > li:nth-child(7) > a').contains('Why for store owners').should('be.visible')
+       cy.get('div.title.footer-community-title > strong').contains('Community').should('be.visible')
+       cy.get('div:nth-child(3) > ul:nth-child(4) > li:nth-child(1) > a').contains('Contribute').should('be.visible')
+       cy.get('div:nth-child(3) > ul:nth-child(4) > li:nth-child(2) > a').contains('Certified developer program').should('be.visible')
+       cy.get('div:nth-child(3) > ul:nth-child(4) > li:nth-child(3) > a').contains('MVP program').should('be.visible')
+       cy.get('div:nth-child(3) > ul:nth-child(4) > li:nth-child(4) > a').contains('Blog').should('be.visible')
+       cy.get('div.title.footer-company-title > strong').contains('Company').should('be.visible')
+       cy.get('div.footer-block.customer-service > ul:nth-child(4) > li:nth-child(1) > a').contains('Advertise with us').should('be.visible')
+       cy.get('div.footer-block.customer-service > ul:nth-child(4) > li:nth-child(2) > a').contains('About us').should('be.visible')
+       cy.get('div.footer-block.customer-service > ul:nth-child(4) > li:nth-child(3) > a').contains('Contact us').should('be.visible')
+
+  })
+  
   it('VLogoLink',function () 
   {
       cy.get('.desktop-logo').click()
