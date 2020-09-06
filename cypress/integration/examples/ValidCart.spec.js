@@ -27,5 +27,16 @@ describe('CartPage', function () {
    cy.get('#topcartlink').click()
    cy.wait(3000)
    cy.get('#shopping-cart-form > div.table-wrapper > table > tbody > tr > td.unit-price > span').contains('$1,800.00')
+   cy.get('#removefromcart11216').check()
+   cy.get('.update-cart-button').click()
+   cy.get('div.page-title > h1').contains('Shopping cart')
+   })
+   it('AddToCart', () => {
+    cy.visit('https://demo.nopcommerce.com/')
+   cy.get('div:nth-child(3) > div > div.details > div.add-info > div.buttons > input.button-2.product-box-add-to-cart-button').click()
+   cy.get('.bar-notification-container').should('be.visible').contains('The product has been added to your shopping cart')
+   cy.get('#topcartlink > a > span.cart-label').should('be.visible').click()
+   cy.get('#itemquantity11216').should('have.value','1')
+   
    })
 })
