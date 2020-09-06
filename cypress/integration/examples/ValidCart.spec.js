@@ -6,17 +6,24 @@ describe('CartPage', function () {
        cy.title().should('eq','nopCommerce demo store')
        cy.url().should('include','demo')
        cy.get('div:nth-child(2) > div > div.details > div.add-info > div.buttons > input.button-2.add-to-compare-list-button').should('be.visible').click()
-
+       cy.get('#bar-notification').should('be.visible').contains('The product has been added to your product comparison')
+       cy.get('div.footer-block.customer-service > ul > li:nth-child(5) > a').should('be.visible').click()
+       cy.url().should('include','compareproducts')
+       cy.get('.product-name > [style="width:90%"] > a').contains('Apple MacBook Pro 13-inch')
        
    })
-   it('AddToCart', () => 
-   {
+   it('AddToCartBySearch', () => {
+    cy.visit('https://demo.nopcommerce.com/')
    cy.get('#small-searchterms').type('Apple MacBook Pro 13-inch')
    cy.get('.search-box-button').click()
+   cy.url().should('include','q=Apple+MacBook+Pro+13-inch')
    cy.get('.product-box-add-to-cart-button').click()
+   cy.get('#product_enteredQuantity_4').clear().type('1')
+   cy.get('#add-to-cart-button-4').click()
+   cy.get('.bar-notification').should('be.visible').contains('The minimum quantity allowed for purchase is 2.')
    cy.get('#product_enteredQuantity_4').clear().type('2')
    cy.get('#add-to-cart-button-4').click()
-   cy.wait(5000)
+   cy.get('#bar-notification').should('be.visible').contains('The product has been added to your shopping cart')
    cy.get('#topcartlink').click()
    cy.wait(3000)
    cy.get('#shopping-cart-form > div.table-wrapper > table > tbody > tr > td.unit-price > span').contains('$1,800.00')
